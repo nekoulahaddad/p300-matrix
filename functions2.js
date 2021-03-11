@@ -28,10 +28,11 @@ $(document).ready(function() {
 			i=0;
 			console.log(c)
 			var d = new Date();
+			var h = d.getHours();
 			var m = d.getMinutes();
 			var s = d.getSeconds();
 			var n = d.getMilliseconds();
-			var startTime = m + ":" + s;
+			var startTime = h + ":" + m + ":" + s;
 			var fix_s = s+5;
 			var firstStimulus = m + ":" + fix_s;
 			document.getElementById("time").innerHTML = startTime;
