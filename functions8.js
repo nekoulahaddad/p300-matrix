@@ -1,9 +1,8 @@
-$(document).ready(function() {
-	var flashes = [];
-	var milis = [];
-								
+$(document).ready(function() {			
 	$("#start8").click( 
 		function() {
+			var flashes = [];
+			var milis = [];
 			const s_color = $("#s-color").val();
 			const ISI = $("#duration_of_stimulus").val() - 0;
 			const d_s = 100;
