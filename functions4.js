@@ -1,13 +1,12 @@
-$(document).ready(function() {
-	var flashes = [];
-	var milis = [];
-								
+$(document).ready(function() {								
 	$("#start4").click( 
 		function() {
+			var flashes = [];
+			var milis = [];
 			const s_color = $("#s-color").val();
-			const ISI = $("#duration_of_stimulus").val() - 1;
-			const d_s = 99;
-			const time = d_s + ISI + 2;
+			const ISI = $("#duration_of_stimulus").val();
+			const d_s = 100;
+			const time = d_s + ISI;
 			const n_t = $("#number_of_trials").val();
 			
 			number_of_trials = n_t;
@@ -43,9 +42,9 @@ $(document).ready(function() {
 			function flash() {
 				
 					
-				if(i<c) {
-					
+				if(i<c) {				
 					var flash_index = new_chars[i];
+					requestAnimationFrame(() => {
 					light_unlit(flash_index,1); // highlight element
 					var d = new Date();
 					var m = d.getMinutes();
@@ -54,25 +53,26 @@ $(document).ready(function() {
 					//var timer = m + ":" + s;
 					//document.getElementById("timer").innerHTML = timer;
 					var mili_s = m*60*1000+1000*s+n;
-					milis.push(mili_s);	
-					new_time = (s + ":" + n);
-					flashes.push(new_time)									
+					milis.push(mili_s);		
+					new_time = (m + ":" + s + ":" + n);
+					flashes.push(new_time)	
+					})								
 					setTimeout(
 						function() {
 							light_unlit(flash_index,0); // revert element to default colour after flash							
 							setTimeout(flash,ISI);
 						}
 					,flash_time);
-						if(i == c-1 && flashes){
-
-
+					}
+					i++;
+						if(i == c+1 && flashes){
 							console.log(flashes);
 							
 							let milis1 = milis.slice(1, milis.length);
 							console.log(milis1);
 							
 							for(i=0;i<milis1.length;i++){
-							milis1[i] = -milis1[i] + milis1[i+1] - (time)
+							milis1[i] = -milis1[i] + milis1[i+1] - (time) + 99900
 							}
 							console.log(milis1);
 							var total = 0;
@@ -83,11 +83,12 @@ $(document).ready(function() {
 							console.log(avg)
 							flashes.push("Mean Error = " + avg)
 						document.getElementById("data_time").innerHTML = (flashes.slice(1, flashes.length)).join('\r\n');
-					}
 					
-				}
+					}	
+					
+				
 			
-				i++;
+				
 			
 			}
 			// recursive function to keep calling setTimeout until all characters have flashed	

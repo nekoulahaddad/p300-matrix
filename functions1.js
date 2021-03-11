@@ -5,9 +5,9 @@ $(document).ready(function() {
 	$("#start1").click( 
 		function() {
 			const s_color = $("#s-color").val();
-			const ISI = $("#duration_of_stimulus").val() - 1;
-			const d_s = 99;
-			const time = d_s + ISI + 2;
+			const ISI = $("#duration_of_stimulus").val();
+			const d_s = 100;
+			const time = d_s + ISI;
 			const n_t = $("#number_of_trials").val();
 			
 			number_of_trials = n_t;
@@ -44,6 +44,7 @@ $(document).ready(function() {
 					
 				if(i<c) {				
 					var flash_index = new_chars[i];
+					requestAnimationFrame(() => {
 					light_unlit(flash_index,1); // highlight element
 					var d = new Date();
 					var m = d.getMinutes();
@@ -54,7 +55,8 @@ $(document).ready(function() {
 					var mili_s = m*60*1000+1000*s+n;
 					milis.push(mili_s);	
 					new_time = (s + ":" + n);
-					flashes.push(new_time)									
+					flashes.push(new_time)
+					})									
 					setTimeout(
 						function() {
 							light_unlit(flash_index,0); // revert element to default colour after flash							
