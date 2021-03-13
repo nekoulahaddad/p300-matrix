@@ -13,11 +13,11 @@ $(document).ready(function() {
 			number_of_trials = n_t;
 			
 			var all_chars = [1,2,3,4,5,6,7,8];
-			new_chars =  [1,3,5,7,2,4,6,8];
+			new_chars = shuffle(all_chars);
 			number_of_trials--;
 			
 			for(a=0; a<number_of_trials; a++) {
-				temp_chars =  [1,3,5,7,2,4,6,8];
+				temp_chars = shuffle(all_chars);
 				new_chars = new_chars.concat(temp_chars);
 				if(a == number_of_trials-1){
 				document.getElementById("data").innerHTML = new_chars;
@@ -45,7 +45,8 @@ $(document).ready(function() {
 					
 				if(i<c) {				
 					var flash_index = new_chars[i];
-					light_unlit(flash_index); // highlight element
+					requestAnimationFrame(() => {
+					light_unlit(flash_index,1); // highlight element
 					var d = new Date();
 					var m = d.getMinutes();
 					var s = d.getSeconds();
@@ -54,31 +55,33 @@ $(document).ready(function() {
 					//document.getElementById("timer").innerHTML = timer;
 					var mili_s = m*60*1000+1000*s+n;
 					milis.push(mili_s);	
-					new_time = (s + ":" + n);
-					flashes.push(new_time)									
+					new_time = (m + "," + s + "," + n);
+					flashes.push(new_time)
+					})									
 					setTimeout(
 						function() {
-							light_unlit(flash_index); // revert element to default colour after flash							
+							light_unlit(flash_index,0); // revert element to default colour after flash							
 							setTimeout(flash,ISI);
 						}
 					,flash_time);
-						if(i == c-1 && flashes){
-							for(i=0;i<milis.length-1;i++){
-								milis[i] = -milis[i] + milis[i+1] - (time)
-							}
-							var total = 0;
-							for(j = 0; j < milis.length-1; j++) {
-							    total += milis[j];
-							}
-							var avg = total / (milis.length-1);
-							flashes.push("Mean Error = " + avg)							
-						document.getElementById("data_time").innerHTML = flashes.join('\r\n');
-						$(".dis").prop('disabled', false);
-					}	
-					
-				}
+					}
+					i++;					
+					if(i == c+1 && flashes){
+					for(i=0;i<milis.length-1;i++){
+						milis[i] = -milis[i] + milis[i+1] - (time)
+					}
+					var total = 0;
+					for(j = 0; j < milis.length-1; j++) {
+					    total += milis[j];
+					}
+					console.log(milis,total)
+					var avg = total / (milis.length-1);
+					flashes.push("Mean Error = " + avg)
+				document.getElementById("data_time").innerHTML = flashes.join('\r\n');
+				$(".dis").prop('disabled', false);
+					}
+				
 			
-				i++;
 			
 			}
 			// recursive function to keep calling setTimeout until all characters have flashed	

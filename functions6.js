@@ -52,7 +52,7 @@ $(document).ready(function() {
 					var n = d.getMilliseconds();
 				var mili_s = m*60*1000+1000*s+n;
 					milis.push(mili_s);	
-					new_time = (m + ":" + s + ":" + n);
+					new_time = (m + "," + s + "," + n);
 					flashes.push(new_time);	
 					});
   				setTimeout(

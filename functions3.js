@@ -45,6 +45,7 @@ $(document).ready(function() {
 					
 				if(i<c) {				
 					var flash_index = new_chars[i];
+					requestAnimationFrame(() => {
 					light_unlit(flash_index,1); // highlight element
 					var d = new Date();
 					var m = d.getMinutes();
@@ -53,33 +54,34 @@ $(document).ready(function() {
 					//var timer = m + ":" + s;
 					//document.getElementById("timer").innerHTML = timer;
 					var mili_s = m*60*1000+1000*s+n;
-					milis.push(mili_s);
-					new_time = (s + ":" + n);
-					flashes.push(new_time);									
+					milis.push(mili_s);	
+					new_time = (m + "," + s + "," + n);
+					flashes.push(new_time)
+					})									
 					setTimeout(
 						function() {
 							light_unlit(flash_index,0); // revert element to default colour after flash							
 							setTimeout(flash,ISI);
 						}
 					,flash_time);
-						if(i == c-1 && flashes){
-							for(i=0;i<milis.length-1;i++){
-								milis[i] = -milis[i] + milis[i+1] - (time)
-							}
-							var total = 0;
-							for(j = 0; j < milis.length-1; j++) {
-							    total += milis[j];
-							}
-							var avg = total / (milis.length-1);
-							flashes.push("Mean Error = " + avg)
-						document.getElementById("data_time").innerHTML = flashes.join('\r\n');
-						$(".dis").prop('disabled', false);
-					
-					}	
-					
-				}
+					}
+					i++;					
+					if(i == c+1 && flashes){
+					for(i=0;i<milis.length-1;i++){
+						milis[i] = -milis[i] + milis[i+1] - (time) + 99900
+					}
+					var total = 0;
+					for(j = 0; j < milis.length-1; j++) {
+					    total += milis[j];
+					}
+					console.log(milis,total)
+					var avg = total / (milis.length-1);
+					flashes.push("Mean Error = " + avg)
+				document.getElementById("data_time").innerHTML = flashes.join('\r\n');
+				$(".dis").prop('disabled', false);
+					}
+				
 			
-				i++;
 			
 			}
 			// recursive function to keep calling setTimeout until all characters have flashed
