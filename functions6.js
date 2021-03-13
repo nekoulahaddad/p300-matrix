@@ -1,6 +1,7 @@
 $(document).ready(function() {								
 	$("#start6").click( 
 			function() {
+			$(".dis").prop('disabled', true);
 			var flashes = [];
 			var milis = [];	
 			const s_color = $("#s-color").val();
@@ -73,7 +74,7 @@ $(document).ready(function() {
 						var avg = total / (milis1.length-1);
 						flashes.push("Mean Error = " + avg)
 						document.getElementById("data_time").innerHTML = (flashes.slice(1, flashes.length)).join('\r\n');
-
+						$(".dis").prop('disabled', false);
 
   				}
   				count++;
