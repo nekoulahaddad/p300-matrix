@@ -55,7 +55,7 @@
 	</div>
 	<div class="col-md-6 col-sm-12">
 	<div class="n_t">
-	<label for="trials">Enter the number of trials, please!</label>
+	<label for="trials">Введите количество проб, пожалуйста!</label>
 	<select name="select" id="number_of_trials">
 	<option value="2">2</option> 
 	<option value="5">5</option> 
@@ -79,46 +79,46 @@
 	</select>
 	</div>
 	<div class="d_s">
-	<label for="trials">Choose the value of stimulation frequency, please!</label>
+	<label for="trials">Выберите, значение частоты стимуляции, пожалуйста!</label>
 	<select name="select" id="duration_of_stimulus">
-	<option value="900">1 Hz</option>
-	<option value="400">2 Hz</option>
-	<option value="233">3 Hz</option>
-	<option value="150" selected>4 Hz</option>
-	<option value="100">5 Hz</option> 
+	<option value="900">1 Гц</option>
+	<option value="400">2 Гц</option>
+	<option value="233">3 Гц</option>
+	<option value="150" selected>4 Гц</option>
+	<option value="100">5 Гц</option> 
 	</select>
 	</div>
 	<div class="d_s">
-	<label for="trials">Choose the color of stimulus, please!</label>
+	<label for="trials">Выберите, цвет стимула, пожалуйста!</label>
 	<select name="select" id="s-color">
-	<option value="blue">blue</option> 
-	<option value="white" selected>white</option> 
-	<option value="red">red</option>
-	<option value="green">green</option>
-	<option value="yellow">yellow</option> 
+	<option value="blue">Синий</option> 
+	<option value="white" selected>Белый</option> 
+	<option value="red">Красный</option>
+	<option value="green">Зелёный</option>
+	<option value="yellow">Жёлтый</option> 
 	</select>
 	</div>
 	<div class="b_s">
-		<button class="btn btn-outline-primary dis" id="start1">First Protocol</button>
-		<button class="btn btn-primary dis" id="start2">Second Protocol</button>
-	<div class="mt">For random order use the protocols below</div>
+		<button class="btn btn-outline-primary dis" id="start1">Протокол 1</button>
+		<button class="btn btn-primary dis" id="start2">Протокол 2</button>
+	<div class="mt">Для случайного порядка используйте протоколы ниже</div>
 	<div class="mt">
-		<button class="btn btn-outline-primary dis" id="start3">Third Protocol</button>
-		<button class="btn btn-primary dis" id="start4">Fourth Protocol</button>
+		<button class="btn btn-outline-primary dis" id="start3">Протокол 3</button>
+		<button class="btn btn-primary dis" id="start4">Протокол 4</button>
 	</div>
-	<div class="mt">For background flashing use the protocols below</div>
+	<div class="mt">Для фонового мигания используйте протоколы ниже</div>
 	<div class="mt">
-		<button class="btn btn-outline-primary dis" id="start5">fifth Protocol</button>
-		<button class="btn btn-primary dis" id="start6">sixth Protocol</button>
+		<button class="btn btn-outline-primary dis" id="start5">Протокол 5</button>
+		<button class="btn btn-primary dis" id="start6">Протокол 6</button>
 	</div>
 	<div class="mt">
-		<button class="btn btn-outline-primary dis" id="start7">seventh Protocol</button>
-		<button class="btn btn-primary dis" id="start8">eighth Protocol</button>
+		<button class="btn btn-outline-primary dis" id="start7">Протокол 7</button>
+		<button class="btn btn-primary dis" id="start8">Протокол 8</button>
 	</div>
-		<p class="mt-2">Start Time:<span id="time"></span></p>
+		<p class="mt-2">Начальное время:<span id="time"></span></p>
 		<p class="d-none">First Stimulus:<span id="f_s"></span></p>
-		<button class="btn btn-outline-success mt-1" id="showData">Show selected numbers</button>
-		<button class="btn btn-success mt-1 dis" id="showTime">Show time of stimuli</button>
+		<button class="btn btn-outline-success mt-1" id="showData">Показать выбранные числа</button>
+		<button class="btn btn-success mt-1 dis" id="showTime">Показать время стимулов</button>
 		<div class="numbers">
 		<p id="data" class="mt showMe"></p>
 		</div>
@@ -127,21 +127,21 @@
 		</div>
 				
 
-		<button class="btn btn-outline-success mt-2" id="showDoc">Show documentation</button>
+		<button class="btn btn-outline-success mt-2" id="showDoc">Показать документацию</button>
 		<div class="numbers">
 		<div id="doc" class="mt showMe">
-		<ul>For the first, third, fifth and seventh protocols ... 
-			<li>1 = first row</li> 
-			<li>2 = second row</li>
-			<li>3 = third row</li>
-			<li>4 = fourth row</li>
-			<li>5 = first column</li> 
-			<li>6 = second column</li>
-			<li>7 = third column</li>
-			<li>8 = fourth column</li>
+		<ul>Для первого, третьего, пятого и седьмого протоколов ... 
+			<li>1 = Первая строка</li> 
+			<li> 2 = вторая строка </li>
+			<li> 3 = третья строка </li>
+			<li> 4 = четвертая строка </li>
+			<li> 5 = первый столбец </li>
+			<li> 6 = второй столбец </li>
+			<li> 7 = третий столбец. </li>
+			<li> 8 = четвертый столбец. </li>	
 		</ul>
-		<ul>For the second, fourth, sixth and eighth protocols ... 
-			<li>We start counting from the letter A (number 1) to the letter P (number 16)</li> 
+		<ul>Для второго, четвертого, шестого и восьмого протоколов ...
+			<li>Начинаем отсчет от буквы А (цифра 1) до буквы P (цифра 16).</li> 
 		</ul>
 		</div>
 		</div>
@@ -155,8 +155,8 @@
                      <a class="mr-2 ml-2" href="https://github.com/nekoulahaddad"><i class="fa fa-github" aria-hidden="true"></i> </a>
                      <a class="mr-2" href="https://vk.com/n.khaddad"><i class="fa fa-vk" aria-hidden="true"></i> </a>
           <a  href="https://www.facebook.com/nico12321"><i class="fa fa-facebook-f" aria-hidden="true"></i> </a>
-          <a href="russian.html">
-          <img alt="russian" class="ml-2 mb-1 russian" href="" src="https://img.icons8.com/doodle/18/000000/russian-federation.png"/>
+          <a href="index.html">
+          <img alt="english" class="ml-2 mb-1 english" src="https://img.icons8.com/doodle/18/000000/great-britain.png"/>
           </a>
           </p>
  

@@ -5,9 +5,9 @@ $(document).ready(function() {
 			var flashes = [];
 			var milis = [];
 			const s_color = $("#s-color").val();
-			const ISI = $("#duration_of_stimulus").val() - 1;
-			const d_s = 99;
-			const time = d_s + ISI + 2;
+			const ISI = $("#duration_of_stimulus").val();
+			const d_s = 100;
+			const time = d_s + ISI;
 			const n_t = $("#number_of_trials").val();
 			
 			number_of_trials = n_t;
@@ -32,7 +32,7 @@ $(document).ready(function() {
 			var m = d.getMinutes();
 			var s = d.getSeconds();
 			var n = d.getMilliseconds();
-			var startTime = h + ":" + m + ":" + s;
+			var startTime = h + ":" + m + ":" + s + " -- " + "you choosed the third protocol";;
 			var fix_s = s+5;
 			var firstStimulus = m + ":" + fix_s;
 			document.getElementById("time").innerHTML = startTime;

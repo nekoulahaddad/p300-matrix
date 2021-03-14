@@ -33,7 +33,7 @@ $(document).ready(function() {
 			var m = d.getMinutes();
 			var s = d.getSeconds();
 			var n = d.getMilliseconds();
-			var startTime = h + ":" + m + ":" + s;
+			var startTime = h + ":" + m + ":" + s + " -- " + "you choosed the second protocol";;
 			var fix_s = s+5;
 			var firstStimulus = m + ":" + fix_s;
 			document.getElementById("time").innerHTML = startTime;

@@ -5,9 +5,9 @@ $(document).ready(function() {
 			var flashes = [];
 			var milis = [];
 			const s_color = $("#s-color").val();
-			const ISI = $("#duration_of_stimulus").val() - 1;
-			const d_s = 99;
-			const time = d_s + ISI + 2;
+			const ISI = $("#duration_of_stimulus").val();
+			const d_s = 100;
+			const time = d_s + ISI;
 			const n_t = $("#number_of_trials").val();
 			
 			number_of_trials = n_t;
@@ -32,7 +32,7 @@ $(document).ready(function() {
 			var m = d.getMinutes();
 			var s = d.getSeconds();
 			var n = d.getMilliseconds();
-			var startTime = h + ":" + m + ":" + s;
+			var startTime = h + ":" + m + ":" + s + " -- " + "you choosed the fifth protocol";;
 			var fix_s = s+5;
 			var firstStimulus = m + ":" + fix_s;
 			document.getElementById("time").innerHTML = startTime;
@@ -68,7 +68,7 @@ $(document).ready(function() {
 					i++;					
 					if(i == c+1 && flashes){
 					for(i=0;i<milis.length-1;i++){
-						milis[i] = -milis[i] + milis[i+1] - (time)
+						milis[i] = -milis[i] + milis[i+1] - (time) + 99900
 					}
 					var total = 0;
 					for(j = 0; j < milis.length-1; j++) {

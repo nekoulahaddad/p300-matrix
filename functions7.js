@@ -1,4 +1,4 @@
-$(document).ready(function() {						
+$(document).ready(function() {			
 	$("#start7").click( 
 		function() {
 			$(".dis").prop('disabled', true);
@@ -6,18 +6,18 @@ $(document).ready(function() {
 			var milis = [];
 			const s_color = $("#s-color").val();
 			const ISI = $("#duration_of_stimulus").val() - 0;
-			const d_s = 100 - 0;
-			const time = d_s + ISI + 0;
+			const d_s = 100;
+			const time = d_s + ISI;
 			const n_t = $("#number_of_trials").val();
 			
 			number_of_trials = n_t;
 			
 			var all_chars = [1,2,3,4,5,6,7,8];
-			new_chars =  [1,3,5,7,2,4,6,8];
+			new_chars = shuffle(all_chars);
 			number_of_trials--;
 			
 			for(a=0; a<number_of_trials; a++) {
-				temp_chars =  [1,3,5,7,2,4,6,8];
+				temp_chars = shuffle(all_chars);
 				new_chars = new_chars.concat(temp_chars);
 				if(a == number_of_trials-1){
 				document.getElementById("data").innerHTML = new_chars;
@@ -32,13 +32,13 @@ $(document).ready(function() {
 			var m = d.getMinutes();
 			var s = d.getSeconds();
 			var n = d.getMilliseconds();
-			var startTime = h + ":" + m + ":" + s;
+			var startTime = h + ":" + m + ":" + s + " -- " + "you choosed the seventh protocol";;
 			var fix_s = s+5;
 			var firstStimulus = m + ":" + fix_s;
 			document.getElementById("time").innerHTML = startTime;
 			document.getElementById("f_s").innerHTML = firstStimulus;
 			setTimeout(flash,5000);
-			// 2 second pause before stimulus presentation starts
+			// 2 second pause before stimulus presentation starts		
 			function flash() {
 
 				count=0;
@@ -79,7 +79,7 @@ $(document).ready(function() {
   				}
   				count++;
 				}, time);
-			}			
+			}					
 
 			function shuffle(array) {
 				var currentIndex = array.length, temporaryValue, randomIndex;
