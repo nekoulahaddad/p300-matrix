@@ -6,7 +6,7 @@ $(document).ready(function() {
 			var milis = [];
 			const s_color = $("#s-color").val();
 			const ISI = $("#duration_of_stimulus").val();
-			const d_s = 100;
+			const d_s = 40;
 			const time = d_s + ISI;
 			const n_t = $("#number_of_trials").val();
 			
